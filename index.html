@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unplug Launchpad</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: url('https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .header nav ul li {
+      margin: 0 15px;
+    }
+
+    .header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .section h1, .section h2 {
+      margin-bottom: 1rem;
+    }
+
+    #countdown {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    .countdown-box {
+      display: inline-block;
+      padding: 20px;
+      margin: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .countdown-box span {
+      font-size: 3rem;
+      display: block;
+    }
+
+    .countdown-box p {
+      margin: 5px 0;
+      font-size: 1.2rem;
+    }
+
+    .countdown-box span,
+    .countdown-box p {
+      color: #fff;
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      width: 250px;
+      height: 250px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .leaders-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .leader-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      width: 200px;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .leader-card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+
+    .leader-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .leader-card p {
+      color: #ccc;
+    }
+
+    .leader-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="header">
+    <nav>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#offer">What We Offer</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#leaders">Meet the Leaders</a></li>
+        <li><a href="#engagement">Engage</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Overview Section -->
+  <section id="overview" class="section">
+    <div>
+      <h1>Unplug Launchpad 🚀</h1>
+      <p>Welcome to the next chapter of Unplug – a vibrant launchpad for startups to thrive, connect, and grow.</p>
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section id="countdown" class="section">
+    <div>
+      <h2>Event Countdown ⏳</h2>
+      <div class="countdown-box">
+        <span id="days">10</span>
+        <p>Days</p>
+      </div>
+      <div class="countdown-box">
+        <span id="hours">10</span>
+        <p>Hours</p>
+      </div>
+      <div class="countdown-box">
+        <span id="minutes">10</span>
+        <p>Minutes</p>
+      </div>
+      <div class="countdown-box">
+        <span id="seconds">10</span>
+        <p>Seconds</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer Section -->
+  <section id="offer" class="section">
+    <div>
+      <h2>What We Offer 💡</h2>
+      <div class="cards-container">
+        <div class="card">
+          <h3>🔗 Collaboration Spaces</h3>
+          <p>Real-time spaces for innovation, discussion, and creative teamwork.</p>
+        </div>
+        <div class="card">
+          <h3>📚 Learning Hubs</h3>
+          <p>Workshops and mentorship programs with industry professionals.</p>
+        </div>
+        <div class="card">
+          <h3>📈 Growth Tools</h3>
+          <p>Resources to scale your idea from concept to success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div>
+      <h2>Features ✨</h2>
+      <div class="cards-container">
+        <div class="card">
+          <h3>🤝 Networking</h3>
+          <p>Connect with entrepreneurs, innovators, and investors.</p>
+        </div>
+        <div class="card">
+          <h3>🧠 Mentorship</h3>
+          <p>Get guidance from experienced mentors to help your startup thrive.</p>
+        </div>
+        <div class="card">
+          <h3>💰 Investor Access</h3>
+          <p>Meet investors interested in funding innovative startups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Leaders Section -->
+  <section id="leaders" class="section">
+    <div>
+      <h2>Meet the Leaders 🌟</h2>
+      <div class="leaders-container">
+        <div class="leader-card">
+          <img src="elon.jpg" alt="Elon Musk" />
+          <h3>Elon Musk</h3>
+          <p>Founder of Tesla, SpaceX, and visionary entrepreneur.</p>
+        </div>
+        <div class="leader-card">
+          <img src="jensen.jpg" alt="Jensen Huang" />
+          <h3>Jensen Huang</h3>
+          <p>Founder of NVIDIA and AI pioneer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Section -->
+  <section id="engagement" class="section">
+    <div>
+      <h2>Get Involved 📅</h2>
+      <p>Check back soon for upcoming events and registration details!</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Unplug Launchpad. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    function updateCountdown() {
+      const eventDate = new Date(); // Set the target date
+      eventDate.setDate(eventDate.getDate() + 10);  // 10 days from now
+      eventDate.setHours(10, 10, 10);  // 10:10:10
+
+      const now = new Date();
+      const timeLeft = eventDate - now;
+
+      if (timeLeft <= 0) {
+        document.getElementById('countdown').innerHTML = "<h2>Event Started!</h2>";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      // Update the display
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    // Update the countdown every second
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initialize countdown immediately
+  </script>
+
+</body>
+</html>
